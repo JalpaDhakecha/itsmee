@@ -17,6 +17,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.gson.Gson;
+import com.razy.itsmee.demo.Models.Model_Success;
 import com.razy.itsmee.demo.Retrofit.ApiHandler;
 
 import java.util.HashMap;
@@ -144,12 +146,13 @@ public class Register extends AppCompatActivity implements GoogleApiClient.OnCon
 
         HashMap<String, String> param = new HashMap<>();
         param.put("AuthType", "1");
-        param.put("Birthday", "");
+        param.put("Birthday", "null");
         param.put("EmailAddress", mail);
         param.put("FirstName", fnm);
         param.put("LastName", lnm);
         param.put("Password", pwd);
-        param.put("Uid", sb.toString());
+        param.put("PasswordRepeat", pwd);
+        param.put("Uid", mail);
         param.put("UserName", unm);
 
         utils.showParamLog(param + "");
@@ -162,23 +165,18 @@ public class Register extends AppCompatActivity implements GoogleApiClient.OnCon
                 Model_Success resData = (Model_Success) response.body();
 
                 utils.showResponseLog(resData + "");
-/*                        if (resData != null && resData.getSuccess().equalsIgnoreCase("1")) {
-                            if (resData.getModel_User().getStatus().equalsIgnoreCase("0")) {
-                                utils.showToast("Registration successful please wait for approval!");
-                                startActivity(new Intent(OTP_Verification.this, Login.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                                finish();
-                                finishAffinity();
-                            } else {
-                                utils.editor.putString("user_detail", new Gson().toJson(resData.getModel_User())).commit();
-                                utils.showLog("Model", utils.getUser().getId() + "*");
+                if (resData != null && resData.getSuccess()) {
+                    utils.editor.putString("user_detail", new Gson().toJson(resData.getData())).commit();
+                    utils.showLog("Model", resData.getData().getId() + "*");
 
-                                startActivity(new Intent(OTP_Verification.this, Home.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                                finish();
-                                finishAffinity();
-                            }
-                        } else if (resData != null && resData.getSuccess().equalsIgnoreCase("2")) {
-                            utils.showToast("Mobile number already register");
-                        }*/
+                    startActivity(new Intent(Register.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                    finish();
+                    finishAffinity();
+
+                } else {
+                    assert resData != null;
+                    utils.showToast(resData.getMessage() != null ? resData.getMessage() : resData.getErrorMessage());
+                }
             }
 
             @Override
@@ -219,23 +217,18 @@ public class Register extends AppCompatActivity implements GoogleApiClient.OnCon
                         Model_Success resData = (Model_Success) response.body();
 
                         utils.showResponseLog(resData + "");
-/*                        if (resData != null && resData.getSuccess().equalsIgnoreCase("1")) {
-                            if (resData.getModel_User().getStatus().equalsIgnoreCase("0")) {
-                                utils.showToast("Registration successful please wait for approval!");
-                                startActivity(new Intent(OTP_Verification.this, Login.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                                finish();
-                                finishAffinity();
-                            } else {
-                                utils.editor.putString("user_detail", new Gson().toJson(resData.getModel_User())).commit();
-                                utils.showLog("Model", utils.getUser().getId() + "*");
+                        if (resData != null && resData.getSuccess()) {
+                            utils.editor.putString("user_detail", new Gson().toJson(resData.getData())).commit();
+                            utils.showLog("Model", resData.getData().getId() + "*");
 
-                                startActivity(new Intent(OTP_Verification.this, Home.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                                finish();
-                                finishAffinity();
-                            }
-                        } else if (resData != null && resData.getSuccess().equalsIgnoreCase("2")) {
-                            utils.showToast("Mobile number already register");
-                        }*/
+                            startActivity(new Intent(Register.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                            finish();
+                            finishAffinity();
+
+                        } else {
+                            assert resData != null;
+                            utils.showToast(resData.getMessage() != null ? resData.getMessage() : resData.getErrorMessage());
+                        }
                     }
 
                     @Override
@@ -247,7 +240,8 @@ public class Register extends AppCompatActivity implements GoogleApiClient.OnCon
             } catch (Exception e) {
                 utils.showLog("Exception in Google ", "" + e);
             }
-        }
+        } else utils.showToast("Something went wrong!!!");
+
     }
 
     @Override

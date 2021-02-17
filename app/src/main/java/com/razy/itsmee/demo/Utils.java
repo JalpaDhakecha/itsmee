@@ -21,6 +21,9 @@ import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 
+import com.google.gson.Gson;
+import com.razy.itsmee.demo.Models.data;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -205,6 +208,13 @@ public class Utils {
         } else
             return false;
         return false;
+    }
+
+    // get Data From Server
+    public data getUser() {
+        Gson gson = new Gson();
+        String json = prefs.getString("user_detail", "");
+        return gson.fromJson(json, data.class);
     }
 
     public boolean isValidEmail(String email) {

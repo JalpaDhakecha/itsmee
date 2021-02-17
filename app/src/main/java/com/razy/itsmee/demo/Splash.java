@@ -49,7 +49,7 @@ public class Splash extends AppCompatActivity {
             @Override
             public void run() {
                 if (isGranted) {
-                    startActivity(new Intent(Splash.this, utils.prefs.getBoolean("islogin", false) ? MainActivity.class : Login.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                    startActivity(new Intent(Splash.this, utils.prefs.getString("user_detail", null) == null ? Login.class : MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
                     finish();
                 } else
                     isValid = true;
