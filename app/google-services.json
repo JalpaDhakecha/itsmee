@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "715328347063",
+    "firebase_url": "https://itsmee-a1af1.firebaseio.com",
+    "project_id": "itsmee-a1af1",
+    "storage_bucket": "itsmee-a1af1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715328347063:android:973a38613e7aae81d16632",
+        "android_client_info": {
+          "package_name": "com.razy.itsmee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "715328347063-159qn5uj0l05q90ancanm42tlsbukbnv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.razy.itsmee",
+            "certificate_hash": "073073af1c9318ece61e81a3bb607c59a3beca51"
+          }
+        },
+        {
+          "client_id": "715328347063-drt4pnf4cb5ve5836gv0k9rdeqd3d9gl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.razy.itsmee",
+            "certificate_hash": "b7a9fac00e2ef4210120e935a5dc68f298219d22"
+          }
+        },
+        {
+          "client_id": "715328347063-h5dd7m6osmn7l9uk7cm1rg7diia7df24.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFYMJ7XLzz9TgIMtxyRm7qagvqjA09dq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "715328347063-h5dd7m6osmn7l9uk7cm1rg7diia7df24.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "715328347063-dm7hg21h2ll1ebjubvr14r4tbiua8mfp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.razy.itsmee"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715328347063:android:73863b307e28ef14d16632",
+        "android_client_info": {
+          "package_name": "com.razy.itsmee.demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "715328347063-h5dd7m6osmn7l9uk7cm1rg7diia7df24.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFYMJ7XLzz9TgIMtxyRm7qagvqjA09dq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "715328347063-h5dd7m6osmn7l9uk7cm1rg7diia7df24.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "715328347063-dm7hg21h2ll1ebjubvr14r4tbiua8mfp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.razy.itsmee"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
