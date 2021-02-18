@@ -26,7 +26,7 @@ public interface ApiInterface {
 
 //    @FormUrlEncoded
     @GET("Picmee/307")
-    Call<Model_Success> getdata(@Query("relationshipType") int relationshipType, @Query("PageIndex") int PageIndex, @Query("PageSize") int PageSize);
+    Call<data> getdata(@Query("relationshipType") int relationshipType, @Query("PageIndex") int PageIndex, @Query("PageSize") int PageSize);
 //    Call<data> getdata(@FieldMap HashMap<String, String> requestBody, @Header("Content-Type") String content_type);
 
 
