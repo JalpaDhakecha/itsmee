@@ -1,10 +1,12 @@
-package com.razy.itsmee.demo;
+package com.razy.itsmee.demo.Helper;
 
 import android.app.Dialog;
 import android.content.Context;
 import android.view.Gravity;
 import android.view.WindowManager;
 import android.widget.TextView;
+
+import com.razy.itsmee.demo.R;
 
 public class Progress extends Dialog {
     public Progress(Context context) {

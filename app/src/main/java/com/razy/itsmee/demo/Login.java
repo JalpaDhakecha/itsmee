@@ -16,6 +16,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.gson.Gson;
+import com.razy.itsmee.demo.Helper.Utils;
 import com.razy.itsmee.demo.Models.Model_Success;
 import com.razy.itsmee.demo.Retrofit.ApiHandler;
 
@@ -105,6 +106,10 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 utils.showResponseLog(response + "");
 
                 Model_Success resData = (Model_Success) response.body();
+
+//                utils.showLog("test",resData.getStatus()+"*");
+
+
                 if (resData != null && resData.getSuccess()) {
 
                     utils.editor.putString("user_detail", new Gson().toJson(resData.getData())).commit();

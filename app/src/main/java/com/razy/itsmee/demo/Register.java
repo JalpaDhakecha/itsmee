@@ -18,6 +18,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.gson.Gson;
+import com.razy.itsmee.demo.Helper.Utils;
 import com.razy.itsmee.demo.Models.Model_Success;
 import com.razy.itsmee.demo.Retrofit.ApiHandler;
 
@@ -175,8 +176,7 @@ public class Register extends AppCompatActivity implements GoogleApiClient.OnCon
                     finishAffinity();
 
                 } else {
-                    assert resData != null;
-                    utils.showToast(resData.getMessage() != null ? resData.getMessage() : resData.getErrorMessage());
+                    utils.showToast(resData != null ? resData.getMessage() : response.message()+"!");
                 }
             }
 
@@ -199,7 +199,7 @@ public class Register extends AppCompatActivity implements GoogleApiClient.OnCon
             GoogleSignInAccount acct = result.getSignInAccount();
             try {
 
-                utils.showLog("Param", acct.getId() + "*");
+//                utils.showLog("Param", acct.getId() + "*");
 
                 /*mail_id = acct.getId();
                 mail = acct.getEmail();
@@ -210,6 +210,9 @@ public class Register extends AppCompatActivity implements GoogleApiClient.OnCon
                 HashMap<String, String> param = new HashMap<>();
                 param.put("AuthType", "2");
                 param.put("Uid", acct.getId());
+
+                utils.showParamLog(param + "");
+
                 ApiHandler.getApiService().register(param, "application/json").enqueue(new Callback() {
                     @Override
                     public void onResponse(Call call, Response response) {
@@ -227,8 +230,7 @@ public class Register extends AppCompatActivity implements GoogleApiClient.OnCon
                             finishAffinity();
 
                         } else {
-                            assert resData != null;
-                            utils.showToast(resData.getMessage() != null ? resData.getMessage() : resData.getErrorMessage());
+                            utils.showToast(resData != null ? resData.getMessage() : response.message()+"!");
                         }
                     }
 

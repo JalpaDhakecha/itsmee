@@ -2,9 +2,6 @@ package com.razy.itsmee.demo.Retrofit;
 
 import android.util.Log;
 
-import com.razy.itsmee.demo.Login;
-import com.razy.itsmee.demo.Utils;
-
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;

@@ -1,4 +1,4 @@
-package com.razy.itsmee.demo;
+package com.razy.itsmee.demo.Helper;
 
 import android.annotation.TargetApi;
 import android.app.Activity;

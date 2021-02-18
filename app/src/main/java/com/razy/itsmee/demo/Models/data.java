@@ -1,6 +1,7 @@
 package com.razy.itsmee.demo.Models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class data implements Serializable {
     String id,
@@ -17,6 +18,10 @@ public class data implements Serializable {
 
     String authType,
             dateCreated;
+
+    boolean success;
+    ArrayList<String> validationResults;
+    ArrayList<picmee> picmees;
 
     public String getId() {
         return id;
@@ -120,5 +125,29 @@ public class data implements Serializable {
 
     public void setDateCreated(String dateCreated) {
         this.dateCreated = dateCreated;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
+    public ArrayList<String> getValidationResults() {
+        return validationResults;
+    }
+
+    public void setValidationResults(ArrayList<String> validationResults) {
+        this.validationResults = validationResults;
+    }
+
+    public ArrayList<picmee> getPicmees() {
+        return picmees;
+    }
+
+    public void setPicmees(ArrayList<picmee> picmees) {
+        this.picmees = picmees;
     }
 }
