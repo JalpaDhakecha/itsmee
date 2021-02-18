@@ -11,8 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.razy.itsmee.demo.Helper.Utils;
 import com.razy.itsmee.demo.Models.ListResponse;
 import com.razy.itsmee.demo.Models.data;
+import com.razy.itsmee.demo.Models.picmee;
 import com.razy.itsmee.demo.Retrofit.ApiHandler;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import retrofit2.Call;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     Utils utils;
     data d;
     ListView lvData;
+    ArrayList<picmee> al = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +77,23 @@ public class MainActivity extends AppCompatActivity {
 
                 if (jsonObj != null && jsonObj.isSuccess()) {
                     utils.showLog("TEST", jsonObj.getData().get(0).getId() + "*");
-                    Adapter adapter = new Adapter(MainActivity.this, jsonObj.getData());
+
+                    for (int i = 0; i < jsonObj.getData().size(); i++) {
+                        picmee p = new picmee();
+                        p.setId(jsonObj.getData().get(i).getId());
+                        p.setTitle(jsonObj.getData().get(i).getTitle());
+                        p.setText(jsonObj.getData().get(i).getText());
+                        p.setFile(jsonObj.getData().get(i).getFile());
+                        p.setDateCreated(jsonObj.getData().get(i).getDateCreated());
+                        p.setDateCreatedDisplay(jsonObj.getData().get(i).getDateCreatedDisplay());
+                        p.setTimeOut(jsonObj.getData().get(i).getTimeOut());
+                        p.setRemainTime(jsonObj.getData().get(i).getRemainTime());
+                        p.setUser(jsonObj.getData().get(i).getUser());
+
+                        al.add(p);
+                    }
+
+                    Adapter adapter = new Adapter(MainActivity.this, al);
                     lvData.setAdapter(adapter);
                 } else utils.showToast("No data found");
             }

@@ -23,6 +23,17 @@ public class data implements Serializable {
     ArrayList<String> validationResults;
     ArrayList<picmee> picmees;
 
+
+    String
+            title,
+            text,
+            file,
+            dateCreatedDisplay,
+            timeOut,
+            remainTime;
+
+    user user;
+
     public String getId() {
         return id;
     }
@@ -149,5 +160,62 @@ public class data implements Serializable {
 
     public void setPicmees(ArrayList<picmee> picmees) {
         this.picmees = picmees;
+    }
+
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getFile() {
+        return file;
+    }
+
+    public void setFile(String file) {
+        this.file = file;
+    }
+
+    public String getDateCreatedDisplay() {
+        return dateCreatedDisplay;
+    }
+
+    public void setDateCreatedDisplay(String dateCreatedDisplay) {
+        this.dateCreatedDisplay = dateCreatedDisplay;
+    }
+
+    public String getTimeOut() {
+        return timeOut;
+    }
+
+    public void setTimeOut(String timeOut) {
+        this.timeOut = timeOut;
+    }
+
+    public String getRemainTime() {
+        return remainTime;
+    }
+
+    public void setRemainTime(String remainTime) {
+        this.remainTime = remainTime;
+    }
+
+    public com.razy.itsmee.demo.Models.user getUser() {
+        return user;
+    }
+
+    public void setUser(com.razy.itsmee.demo.Models.user user) {
+        this.user = user;
     }
 }

@@ -8,16 +8,16 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.razy.itsmee.demo.Models.data;
+import com.razy.itsmee.demo.Models.picmee;
 
 import java.util.ArrayList;
 
 public class Adapter extends BaseAdapter {
     public Activity context;
     LayoutInflater inflater;
-    private ArrayList<data> al;
+    private ArrayList<picmee> al;
 
-    public Adapter(Activity cxt, ArrayList<data> al) {
+    public Adapter(Activity cxt, ArrayList<picmee> al) {
         this.context = cxt;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.al = al;
@@ -29,7 +29,7 @@ public class Adapter extends BaseAdapter {
     }
 
     @Override
-    public data getItem(int position) {
+    public picmee getItem(int position) {
         return al.get(position);
     }
 
@@ -52,8 +52,8 @@ public class Adapter extends BaseAdapter {
 
         } else
             holder = (ViewHolder) convertView.getTag();
-        holder.tvUname.setText(getItem(position).getUserName() != null ? getItem(position).getUserName() : "Sushant Dongal");
-        holder.tvName.setText(getItem(position).getFirstName() != null ? (getItem(position).getFirstName() + " " + getItem(position).getLastName()) : "Sushant Dongal");
+        holder.tvUname.setText(getItem(position).getUser().getUserName() != null ? getItem(position).getUser().getUserName() : "Sushant Dongal");
+        holder.tvName.setText(getItem(position).getUser().getFirstName() != null ? (getItem(position).getUser().getFirstName() + " " + getItem(position).getUser().getLastName()) : "Sushant Dongal");
 
         return convertView;
     }
