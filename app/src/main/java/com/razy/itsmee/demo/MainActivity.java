@@ -64,12 +64,13 @@ public class MainActivity extends AppCompatActivity {
 
         utils.showParamLog(param + "");
 //        ApiHandler.getApiService().getdata(param, "Query Params").enqueue(new Callback() {
-        ApiHandler.getApiService().getdata("0", "0", "20", "Query Params").enqueue(new Callback() {
+        ApiHandler.getApiService().getdata(0, 0, 20).enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 utils.postExecute();
                 utils.showResponseLog(response + "");
                 data jsonObj = (data) response.body();
+
                 if (jsonObj != null && jsonObj.isSuccess()) {
                     Adapter adapter = new Adapter(MainActivity.this, jsonObj.getPicmees());
                     lvData.setAdapter(adapter);

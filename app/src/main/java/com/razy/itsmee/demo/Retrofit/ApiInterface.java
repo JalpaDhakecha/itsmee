@@ -24,9 +24,10 @@ public interface ApiInterface {
     @POST("Account/Login/")
     Call<Model_Success> login(@Body HashMap<String, String> requestBody, @Header("Content-Type") String content_type);
 
-    @GET("Picmee/307/")
-    Call<data> getdata(@Query("relationshipType") String relationshipType, @Query("PageIndex") String PageIndex, @Query("PageSize") String PageSize, @Header("Content-Type") String content_type);
-//    Call<data> getdata(@Body HashMap<String, String> requestBody, @Header("Content-Type") String content_type);
+//    @FormUrlEncoded
+    @GET("Picmee/307")
+    Call<Model_Success> getdata(@Query("relationshipType") int relationshipType, @Query("PageIndex") int PageIndex, @Query("PageSize") int PageSize);
+//    Call<data> getdata(@FieldMap HashMap<String, String> requestBody, @Header("Content-Type") String content_type);
 
 
 }
