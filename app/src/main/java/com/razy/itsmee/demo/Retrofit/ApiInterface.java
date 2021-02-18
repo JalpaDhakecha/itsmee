@@ -1,5 +1,6 @@
 package com.razy.itsmee.demo.Retrofit;
 
+import com.razy.itsmee.demo.Models.ListResponse;
 import com.razy.itsmee.demo.Models.Model_Success;
 import com.razy.itsmee.demo.Models.data;
 
@@ -26,7 +27,7 @@ public interface ApiInterface {
 
 //    @FormUrlEncoded
     @GET("Picmee/307")
-    Call<data> getdata(@Query("relationshipType") int relationshipType, @Query("PageIndex") int PageIndex, @Query("PageSize") int PageSize);
+    Call<ListResponse> getdata(@Query("relationshipType") int relationshipType, @Query("PageIndex") int PageIndex, @Query("PageSize") int PageSize);
 //    Call<data> getdata(@FieldMap HashMap<String, String> requestBody, @Header("Content-Type") String content_type);
 
 

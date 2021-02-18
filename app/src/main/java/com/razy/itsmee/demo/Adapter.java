@@ -8,16 +8,16 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.razy.itsmee.demo.Models.picmee;
+import com.razy.itsmee.demo.Models.data;
 
 import java.util.ArrayList;
 
 public class Adapter extends BaseAdapter {
     public Activity context;
     LayoutInflater inflater;
-    private ArrayList<picmee> al;
+    private ArrayList<data> al;
 
-    public Adapter(Activity cxt, ArrayList<picmee> al) {
+    public Adapter(Activity cxt, ArrayList<data> al) {
         this.context = cxt;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.al = al;
@@ -29,7 +29,7 @@ public class Adapter extends BaseAdapter {
     }
 
     @Override
-    public picmee getItem(int position) {
+    public data getItem(int position) {
         return al.get(position);
     }
 
@@ -52,8 +52,8 @@ public class Adapter extends BaseAdapter {
 
         } else
             holder = (ViewHolder) convertView.getTag();
-        holder.tvUname.setText(getItem(position).getUser().getUserName());
-        holder.tvName.setText(getItem(position).getUser().getFirstName() + " " + getItem(position).getUser().getLastName());
+        holder.tvUname.setText(getItem(position).getUserName() != null ? getItem(position).getUserName() : "Sushant Dongal");
+        holder.tvName.setText(getItem(position).getFirstName() != null ? (getItem(position).getFirstName() + " " + getItem(position).getLastName()) : "Sushant Dongal");
 
         return convertView;
     }

@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.razy.itsmee.demo.Helper.Utils;
+import com.razy.itsmee.demo.Models.ListResponse;
 import com.razy.itsmee.demo.Models.data;
 import com.razy.itsmee.demo.Retrofit.ApiHandler;
 
@@ -69,12 +70,13 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) {
                 utils.postExecute();
                 utils.showResponseLog(response + "");
-                data jsonObj = (data) response.body();
+                ListResponse jsonObj = (ListResponse) response.body();
 
                 if (jsonObj != null && jsonObj.isSuccess()) {
-                    Adapter adapter = new Adapter(MainActivity.this, jsonObj.getPicmees());
+                    utils.showLog("TEST", jsonObj.getData().get(0).getId() + "*");
+                    Adapter adapter = new Adapter(MainActivity.this, jsonObj.getData());
                     lvData.setAdapter(adapter);
-                }
+                } else utils.showToast("No data found");
             }
 
             @Override
