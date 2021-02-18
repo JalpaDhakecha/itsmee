@@ -18,7 +18,6 @@ public class data implements Serializable {
     String authType,
             dateCreated;
 
-
     public String getId() {
         return id;
     }

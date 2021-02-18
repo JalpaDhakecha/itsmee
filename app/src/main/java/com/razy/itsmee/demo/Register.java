@@ -55,6 +55,7 @@ public class Register extends AppCompatActivity implements GoogleApiClient.OnCon
 
         (findViewById(R.id.llGmail)).setOnClickListener(view -> signIn());
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
